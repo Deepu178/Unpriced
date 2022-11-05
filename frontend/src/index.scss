@@ -1,0 +1,25 @@
+@use 'sass:math';
+@use './sass/abstract/variables' as *;
+@use './sass';
+
+:root {
+  --color-primary: #{$color-cyan};
+  --color-primary-light: #{$color-cyan-light};
+  --color-text: #{$color-dark};
+  --color-light: #{$color-light};
+  --color-white: #fff;
+  --color-black: #000;
+}
+
+html {
+  // Converting 10px into percentage %
+  font-size: math.div(100, 16) * 10%;
+  // font-size: 10px;
+  // 62.5% = 10px
+}
+
+body {
+  font: $font-weight $font-size $font-primary;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
