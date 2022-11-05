@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import Modal from 'react-modal';
+import Modal from './Modal';
 //import facebookLogin from 'react-facebook-login';
 //import googleLogin from 'react-google-login';
 const customStyles = {
@@ -20,23 +20,23 @@ export default function Login() {
   return (
     <div>
       <div>
-        <button className="login" onClick={() => setIsLoginModalOpen(true)}>
+        <button className="login" onClick={() => setIsModalOpen(true)}>
           Login
         </button>
-        <button className="create" onClick={() => setIsCreateModalOpen(true)}>
+        <button className="create" onClick={() => setIsModalOpen(true)}>
           Create an account
         </button>
       </div>
-      <Modal isOpen={isCreateModalOpen} style={customStyles}>
+      <Modal isOpen={isModalOpen} style={customStyles}>
         <div>
           <h3 id="create-heading">
             {' '}
             Creat an account
-            <button onClick={() => setIsCreateModalOpen(false)} className="btn float-end">
+            <button onClick={() => setIsModalOpen(false)} className="btn float-end">
               <b>x</b>
             </button>
           </h3>
-          <form action="">
+          <form action="../../../api/v1/users" method='POST'>
             <fieldset>
               <input type={'text'} placeholder="Full Name" />
               <br />
