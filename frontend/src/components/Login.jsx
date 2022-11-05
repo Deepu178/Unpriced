@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import React from 'react';
 import Modal from './Modal';
 //import facebookLogin from 'react-facebook-login';
