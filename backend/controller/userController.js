@@ -6,9 +6,9 @@ exports.createUser = async (req, res) => {
 
   res.status(201).json({
     status: "success",
-    data: {
-      user: newUser,
-    },
+    // data: {
+    //   user: newUser,
+    // },
   });
 };
 
