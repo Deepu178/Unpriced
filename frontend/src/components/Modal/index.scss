@@ -1,3 +1,5 @@
+@use '../../sass/abstract/mixins' as *;
+
 .modal {
   position: fixed;
   top: 50%;
@@ -15,11 +17,8 @@
   gap: 2.4rem;
 
   &__close {
-    display: none;
-    background: none;
-    border: none;
+    @include btnReset;
     display: inline-block;
-
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
@@ -27,8 +26,6 @@
     svg {
       display: block;
     }
-
-    cursor: pointer;
 
     color: var(--color-grey-1);
     transition: all 0.3s;

@@ -1,10 +1,16 @@
 @use 'sass:math';
 
 // COLORS
-$color-cyan: #06b6d4;
-$color-cyan-light: #67e8f9;
-$color-dark: #39465e;
-$color-light: #f3f3f4;
+
+:root {
+  --color-primary: #06b6d4;
+  --color-primary-light: #22d3ee;
+  --color-danger: #ff3366;
+  --color-text: #39465e;
+  --color-light: #f3f3f4;
+  --color-white: #fff;
+  --color-black: #000;
+}
 
 // FONTS
 $font-primary: 'Inter', sans-serif;

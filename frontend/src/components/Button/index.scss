@@ -1,0 +1,77 @@
+@use '../../sass/abstract/mixins' as *;
+
+.button {
+  @include btnReset;
+  @include flexCenter;
+  height: 4rem;
+  padding: 1rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  // COLORS
+
+  &.secondary {
+    color: var(--color-primary);
+    background-color: var(--color-tertiary);
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: var(--color-tertiary-light);
+    }
+  }
+
+  &.danger {
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: var(--color-secondary-light);
+    }
+  }
+
+  // VARIANT
+
+  &.solid {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: var(--color-primary-light);
+    }
+  }
+
+  &.link {
+    color: var(--color-white);
+    font-size: inherit;
+    font-weight: 400;
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: var(--color-primary-light);
+    }
+  }
+
+  // PROPERTIES
+
+  &.large {
+    height: 4.8rem;
+    border-radius: 24px;
+  }
+
+  &.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+}
