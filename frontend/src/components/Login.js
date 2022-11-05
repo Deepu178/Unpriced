@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import React from 'react';
 import Modal from './Modal';
-//import facebookLogin from 'react-facebook-login';
-//import googleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 const customStyles = {
   content: {
     top: '50%',
@@ -55,8 +55,45 @@ export default function Login() {
               </button>
             </fieldset>
           </form>
+          
         </div>
       </Modal>
+      <Modal isOpen={isModalOpen} style={customStyles}>
+      <div>
+        <h3 id='login-heading'>Login
+      <button onClick={()=>setIsModalOpen(false)}  className="btn float-end"><b>x</b></button>
+      </h3>
+      <form>
+        <fieldset>
+          <input type="email" placeholder='Enter your Email' />
+          <br/>
+          <br/>
+          <input type="password" placeholder='Enter your password here'/>
+          <br/>
+          <br/>
+          <button id='login-btn'>Login</button>
+        </fieldset>
+      </form>
+       <div>
+        <FacebookLogin
+        appId="1124482858371534"
+        autoLoad={true}
+        fields="name,email,picture"
+        textButton='Continue with facebook'
+        cssClass='btn btn-primary'
+        />
+      </div>
+      <div>
+      <GoogleLogin
+    clientId="977464933844-86ub2807vaipnhklrtm8e0vn9ko8s78h.apps.googleusercontent.com"
+    buttonText="Login"
+    // onSuccess={responseGoogle}
+    // onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'} cssClass="btn btn-primary"
+  />
+      </div> 
+      </div>
+    </Modal>
     </div>
   );
 }
