@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: [true, "please provide your number"],
   },
+  password:{
+    type:String,
+    required:[true, "Please provide a password"],
+  }
 });
 
 const User = mongoose.model("User", userSchema);
