@@ -10,7 +10,7 @@ const Nav = () => {
   return (
     <>
       <Login show={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
-      <div className="navbar">
+      <header className="navbar">
         <Logo />
         <nav className="nav">
           <ul className="nav__list">
@@ -24,7 +24,7 @@ const Nav = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </header>
     </>
   );
 };
