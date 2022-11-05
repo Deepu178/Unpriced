@@ -1,0 +1,8 @@
+.features {
+  max-width: 96rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 6rem;
+  margin: 0 auto;
+  margin-bottom: 16rem;
+}

@@ -1,3 +1,4 @@
+import Features from './containers/Features';
 import Hero from './containers/Hero';
 import Nav from './containers/Nav';
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <Nav />
       <Hero />
+      <Features />
     </>
   );
 }

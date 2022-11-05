@@ -19,7 +19,7 @@ const Searchbar = ({ onChange, placeholder, className, button = '' }) => {
         {<IoMdSearch />}
         <input type="search" name="search-bar" value={value} onChange={changeHandler} className="search-bar__input" placeholder={placeholder} />
       </div>
-      <Button className="search-bar__btn">{button}</Button>
+      <Button size="large">{button}</Button>
     </form>
   );
 };

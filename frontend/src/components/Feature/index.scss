@@ -1,0 +1,21 @@
+.feature {
+  // width: 28rem;
+  min-height: 32rem;
+  background-color: var(--color-white);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+
+  // icon
+  svg {
+    font-size: 46px;
+    margin-top: 7.5rem;
+    color: var(--color-primary);
+  }
+
+  &__title {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+}
