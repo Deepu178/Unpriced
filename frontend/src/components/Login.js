@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import React from 'react';
-import Modal from './Modal';
-
+import Modal from 'react-modal';
 //import facebookLogin from 'react-facebook-login';
 //import googleLogin from 'react-google-login';
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 export default function Login() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,16 +20,22 @@ export default function Login() {
   return (
     <div>
       <div>
-        <button className="login" onClick={() => setIsModalOpen(true)}>
+        <button className="login" onClick={() => setIsLoginModalOpen(true)}>
           Login
         </button>
-        <button className="create" onClick={() => setIsModalOpen(true)}>
+        <button className="create" onClick={() => setIsCreateModalOpen(true)}>
           Create an account
         </button>
       </div>
-      <Modal onClose={() => setIsModalOpen(false)} isOpen={isModalOpen}>
+      <Modal isOpen={isCreateModalOpen} style={customStyles}>
         <div>
-          <h3 id="create-heading"> Create an account</h3>
+          <h3 id="create-heading">
+            {' '}
+            Creat an account
+            <button onClick={() => setIsCreateModalOpen(false)} className="btn float-end">
+              <b>x</b>
+            </button>
+          </h3>
           <form action="">
             <fieldset>
               <input type={'text'} placeholder="Full Name" />
