@@ -1,8 +1,8 @@
 import { useState} from 'react';
 import React from 'react';
 import Modal from 'react-modal';
-//import facebookLogin from 'react-facebook-login';
-//import googleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 const customStyles = {
   content: {
     top: '50%',
@@ -32,18 +32,18 @@ export default function Login() {
       <h3 id='create-heading'> Creat an account
         <button onClick={()=>setIsCreateModalOpen(false)} className="btn float-end"><b>x</b></button>
       </h3>
-      <form action=''>
+      <form action="../../../../api/v1/users" method='post' >
         <fieldset>
-        <input type={"text"} placeholder="Full Name"/>
+        <input type={"text"} name="name" placeholder="Full Name"/>
         <br/>
         <br/>
-        <input type={'email'} placeholder="Enter Your Email"/>
+        <input type={'email'} name="email" placeholder="Enter Your Email"/>
         <br/>
         <br/>
-        <input type={Number} placeholder="Phone Number" />
+        <input type={Number} name="number" placeholder="Phone Number" />
         <br/>
         <br/>
-        <input type={"password"} placeholder="Create Password"/>
+        <input type={"password"} name="password" placeholder="Create Password"/>
         <br/>
         <br/>
         <button id='create-btn' type='sumbit' >Create</button>
@@ -51,6 +51,42 @@ export default function Login() {
       </form>
     </div>
   </Modal>
+  <Modal isOpen={isLoginModalOpen} style={customStyles}>
+      <div>
+        <h3 id='login-heading'>Login
+      <button onClick={()=>setIsLoginModalOpen(false)}  className="btn float-end"><b>x</b></button>
+      </h3>
+      <form>
+        <fieldset>
+          <input type="email" placeholder='Enter your Email' />
+          <br/>
+          <br/>
+          <input type="password" placeholder='Enter your password here'/>
+          <br/>
+          <br/>
+          <button id='login-btn'>Login</button>
+        </fieldset>
+      </form>
+       <div>
+        <FacebookLogin
+        appId="1124482858371534"
+        autoLoad={true}
+        fields="name,email,picture"
+        textButton='Continue with facebook'
+        cssClass='btn btn-primary'
+        />
+      </div>
+      <div>
+      <GoogleLogin
+    clientId="977464933844-86ub2807vaipnhklrtm8e0vn9ko8s78h.apps.googleusercontent.com"
+    buttonText="Login"
+    // onSuccess={responseGoogle}
+    // onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'} cssClass="btn btn-primary"
+  />
+      </div> 
+      </div>
+    </Modal>
   </div>
   )
 }
