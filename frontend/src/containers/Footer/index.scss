@@ -1,0 +1,52 @@
+@use '../../sass/abstract/variables' as *;
+
+.footer {
+  margin-top: 10rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5rem;
+  justify-items: center;
+  padding: 8rem 10%;
+  background-color: var(--color-text);
+  color: var(--color-white);
+
+  @media screen and (min-width: $md) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    text-align: left;
+  }
+
+  &__logo {
+    margin-bottom: 2rem;
+    font-size: 2.4rem;
+  }
+
+  &__text {
+    line-height: 1.75;
+    letter-spacing: 0.03em;
+    margin-bottom: 2.4rem;
+  }
+
+  &__social-link {
+    &,
+    &:link,
+    &:visited {
+      &:not(:last-of-type) {
+        margin-right: 20px;
+      }
+      // icon
+      svg {
+        transition: all 0.2s;
+        font-size: 2rem;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      svg {
+        fill: var(--color-primary);
+      }
+    }
+  }
+}

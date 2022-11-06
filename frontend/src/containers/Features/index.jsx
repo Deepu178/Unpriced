@@ -3,6 +3,7 @@ import { VscBell } from 'react-icons/vsc';
 import { MdMoneyOff } from 'react-icons/md';
 import Feature from '../../components/Feature';
 import './index.scss';
+import Wrapper from '../../components/Wrapper';
 
 const Features = () => {
   const features = [
@@ -20,14 +21,14 @@ const Features = () => {
   ];
 
   return (
-    <section id="features">
+    <Wrapper element="section" id="features">
       <h2 className="h-l u-text-center">What will you get</h2>
       <div className="features">
         {features.map(({ icon, title, description }) => (
           <Feature title={title} icon={icon} description={description} />
         ))}
       </div>
-    </section>
+    </Wrapper>
   );
 };
 

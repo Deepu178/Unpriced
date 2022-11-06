@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 //mport {useState} from 'react';
 import Modal from './Modal';
-import axios from 'axios'; 
+import axios from 'axios';
 //import facebookLogin from 'react-facebook-login';
 //import googleLogin from 'react-google-login';
 
 export default function Login({ show = false, onClose }) {
-
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [booked, setBooked] = useState(false);
 
   const onChangeName = (e) => {
@@ -38,7 +36,7 @@ export default function Login({ show = false, onClose }) {
     console.log(bookingData);
 
     axios
-      .post("http://localhost:80/api/vi/users", bookingData)
+      .post('http://localhost:80/api/vi/users', bookingData)
       .then((res) => {
         console.log(res.data);
         setName(name);
@@ -51,7 +49,6 @@ export default function Login({ show = false, onClose }) {
       });
     setBooked(true);
   };
-
 
   return (
     <Modal isOpen={show} onClose={() => onClose()}>
