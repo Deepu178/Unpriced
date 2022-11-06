@@ -1,4 +1,4 @@
-# Unprice
+# Unprice - Never Pay More, Not A Penny Any More!
 
 ### By Arsh, Deependra, Saurav, Vatsal
 
@@ -13,14 +13,5 @@ We have build UnPrice which will help you know the price history of your desired
 ## System requirements
 * Node.js
 * MongoDB
-* 
+* IDE
 
-
-## Contents 
-
-
-## How to Run
-
-## Application Design 
-
-##
