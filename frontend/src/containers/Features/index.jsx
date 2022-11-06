@@ -2,8 +2,9 @@ import { GoGraph } from 'react-icons/go';
 import { VscBell } from 'react-icons/vsc';
 import { MdMoneyOff } from 'react-icons/md';
 import Feature from '../../components/Feature';
-import './index.scss';
 import Wrapper from '../../components/Wrapper';
+import { getId } from '../../utils/helper';
+import './index.scss';
 
 const Features = () => {
   const features = [
@@ -22,10 +23,10 @@ const Features = () => {
 
   return (
     <Wrapper element="section" id="features">
-      <h2 className="h-l u-text-center">What will you get</h2>
+      <h2 className="h-l u-text-center features__heading">What will you get</h2>
       <div className="features">
         {features.map(({ icon, title, description }) => (
-          <Feature title={title} icon={icon} description={description} />
+          <Feature key={getId()} title={title} icon={icon} description={description} />
         ))}
       </div>
     </Wrapper>

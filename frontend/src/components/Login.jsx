@@ -1,42 +1,75 @@
 import React, { useState } from 'react';
-//mport {useState} from 'react';
-import Modal from './Modal';
 import axios from 'axios';
+import Modal from './Modal';
+import Input from './Input';
+import Button from './Button';
+import useInput from '../hooks/use-input';
+import './index.scss';
 //import facebookLogin from 'react-facebook-login';
 //import googleLogin from 'react-google-login';
 
 export default function Login({ show = false, onClose }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState();
-  const [password, setPassword] = useState('');
-  const [booked, setBooked] = useState();
+  // const [name, setName] = useState();
+  const { value: name, error: nameError, isValid: nameIsValid, reset: nameReset, blurHandler: nameBlurHandler, changeHandler: nameChangeHandler } = useInput({ required: 'Please enter your name!' });
 
-  const onChangeName = (e) => {
-    setName(e.target.value);
-  };
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const onChangePhone = (e) => {
-    setPhone(e.target.value);
-  };
-  const onChangePassword = (e) => {
-    setPassword(e.target.value);
+  const {
+    value: email,
+    error: emailError,
+    isValid: emailIsValid,
+    reset: emailReset,
+    blurHandler: emailBlurHandler,
+    changeHandler: emailChangeHandler,
+  } = useInput({ required: 'Please enter your email!' });
+
+  const {
+    value: phone,
+    error: phoneError,
+    isValid: phoneIsValid,
+    reset: phoneReset,
+    blurHandler: phoneBlurHandler,
+    changeHandler: phoneChangeHandler,
+  } = useInput({ required: 'Please enter your phone!' });
+
+  const {
+    value: password,
+    error: passwordError,
+    isValid: passwordIsValid,
+    reset: passwordReset,
+    blurHandler: passwordBlurHandler,
+    changeHandler: passwordChangeHandler,
+  } = useInput({ required: 'Please enter your password!' });
+
+  const resetForm = () => {
+    nameReset();
+    emailReset();
+    phoneReset();
+    passwordReset();
+    onClose();
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (!emailIsValid && !phoneIsValid && !nameIsValid && !passwordIsValid) {
+      // alert('invalid credentials');
+      nameBlurHandler();
+      emailBlurHandler();
+      phoneBlurHandler();
+      passwordBlurHandler();
+      return;
+    }
+
     const bookingData = {
-      name: name,
-      email: email,
-      phone: phone,
-      password: password,
+      name,
+      email,
+      phone,
+      password,
     };
+
     console.log(bookingData);
 
     axios
-      .post("http://localhost:8080/api/v1/users", bookingData)
+      .post('http://localhost:8080/api/v1/users', bookingData)
       .then((res) => {
         console.log(res.data);
         // setName(name);
@@ -47,36 +80,24 @@ export default function Login({ show = false, onClose }) {
       .catch((error) => {
         console.log(error);
       });
-    setBooked(true);
   };
 
   return (
-    <Modal isOpen={show} onClose={() => onClose()}>
+    <Modal isOpen={show} onClose={() => resetForm()}>
       <div>
-        <h3 id="create-heading">
-          Create an account
-          <button onClick={() => onClose()} className="btn float-end">
-            <b>x</b>
-          </button>
-        </h3>
+        <h3 className="h-l login__heading">Create an account</h3>
         <form onSubmit={submitHandler}>
-          <fieldset>
-            <input type={'text'} onChange={onChangeName} placeholder="Full Name" />
-            <br />
-            <br />
-            <input type={'email'} onChange={onChangeEmail} placeholder="Enter Your Email" />
-            <br />
-            <br />
-            <input type={'number'} onChange={onChangePhone} placeholder="Phone Number" />
-            <br />
-            <br />
-            <input type={'password'} onChange={onChangePassword} placeholder="Create Password" />
-            <br />
-            <br />
-            <button id="create-btn" type="sumbit">
-              Create
-            </button>
-          </fieldset>
+          <Input placeholder="Full Name" value={name} onChange={nameChangeHandler} onBlur={nameBlurHandler} error={nameError} />
+
+          <Input type="email" value={email} placeholder="Enter your Email" onChange={emailChangeHandler} onBlur={emailBlurHandler} error={emailError} />
+
+          <Input type="tel" value={phone} placeholder="Enter your phone" onChange={phoneChangeHandler} onBlur={phoneBlurHandler} error={phoneError} />
+
+          <Input type="password" value={password} placeholder="Create Password" onChange={passwordChangeHandler} onBlur={passwordBlurHandler} error={passwordError} />
+
+          <Button size="large" type="submit">
+            Create
+          </Button>
         </form>
       </div>
     </Modal>
