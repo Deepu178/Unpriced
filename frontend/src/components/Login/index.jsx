@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
-import Modal from './Modal';
-import Input from './Input';
-import Button from './Button';
-import useInput from '../hooks/use-input';
-import './index.scss';
+import Modal from '../Modal';
+import Input from '../Input';
+import Button from '../Button';
+import useInput from '../../hooks/use-input';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import './index.scss';
 
 const responseGoogle = (response) => {
   console.log(response);
-}
+};
 
 export default function Login({ show = false, onClose }) {
-  // const [name, setName] = useState();
   const { value: name, error: nameError, isValid: nameIsValid, reset: nameReset, blurHandler: nameBlurHandler, changeHandler: nameChangeHandler } = useInput({ required: 'Please enter your name!' });
 
   const {
@@ -76,10 +75,6 @@ export default function Login({ show = false, onClose }) {
       .post('http://localhost:8080/api/v1/users', bookingData)
       .then((res) => {
         console.log(res.data);
-        // setName(name);
-        // setEmail(email);
-        // setPhone(phone);
-        // setPassword(password);
       })
       .catch((error) => {
         console.log(error);
@@ -88,46 +83,38 @@ export default function Login({ show = false, onClose }) {
 
   return (
     <div>
-    <Modal isOpen={show} onClose={() => resetForm()}>
-      <div>
-        <h3 className="h-l login__heading">Create an account</h3>
-        <form onSubmit={submitHandler}>
-          <Input placeholder="Full Name" value={name} onChange={nameChangeHandler} onBlur={nameBlurHandler} error={nameError} />
+      <Modal isOpen={show} onClose={() => resetForm()}>
+        <div>
+          <h3 className="h-l login__heading">Create an account</h3>
+          <form onSubmit={submitHandler}>
+            <Input placeholder="Full Name" value={name} onChange={nameChangeHandler} onBlur={nameBlurHandler} error={nameError} />
 
-          <Input type="email" value={email} placeholder="Enter your Email" onChange={emailChangeHandler} onBlur={emailBlurHandler} error={emailError} />
+            <Input type="email" value={email} placeholder="Enter your Email" onChange={emailChangeHandler} onBlur={emailBlurHandler} error={emailError} />
 
-          <Input type="tel" value={phone} placeholder="Enter your phone" onChange={phoneChangeHandler} onBlur={phoneBlurHandler} error={phoneError} />
+            <Input type="tel" value={phone} placeholder="Enter your phone" onChange={phoneChangeHandler} onBlur={phoneBlurHandler} error={phoneError} />
 
-          <Input type="password" value={password} placeholder="Create Password" onChange={passwordChangeHandler} onBlur={passwordBlurHandler} error={passwordError} />
+            <Input type="password" value={password} placeholder="Create Password" onChange={passwordChangeHandler} onBlur={passwordBlurHandler} error={passwordError} />
 
-          <Button size="large" type="submit">
-            Create
-          </Button>
-        </form>
-      </div>
-    </Modal>
-    
-    <Modal isOpen={show} >
-      <div>
-       <div>
-        <FacebookLogin
-        appId="865366151290601"
-        autoLoad={true}
-        fields="name,email,picture,"
-        textButton='Continue with facebook'
-        />
-      </div>
-      <div>
-      <GoogleLogin
-    clientId="827982091533-r63rtar2ogioj6jtb7gvn9pu5augnshp.apps.googleusercontent.com"
-    buttonText="Login"
-     onSuccess={responseGoogle}
-     //onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'} 
-  />
-      </div> 
-      </div>
-    </Modal>
+            <Button size="large" type="submit">
+              Create
+            </Button>
+          </form>
+          <div className="btn-grp">
+            <div className="fb">
+              <FacebookLogin appId="865366151290601" autoLoad={true} fields="name,email,picture," textButton="Continue with facebook" />
+            </div>
+            <div className="google">
+              <GoogleLogin
+                clientId="827982091533-r63rtar2ogioj6jtb7gvn9pu5augnshp.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                //onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+              />
+            </div>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

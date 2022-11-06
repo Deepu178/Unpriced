@@ -1,0 +1,35 @@
+@use '../../sass/abstract/mixins' as *;
+
+.login {
+  background-color: var(--color-white);
+  display: none;
+  &__heading {
+    margin-bottom: 3rem;
+  }
+}
+
+.google {
+  & > button[type='button'] {
+    // display: none !important;
+    @include flexCenter;
+    height: 50px !important;
+    padding: 1.2rem 2rem !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+  }
+}
+
+.fb {
+  span button.kep-login-facebook.metro {
+    // display: none !important;
+    @include flexCenter;
+    height: 50px;
+    padding: 1.2rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-transform: capitalize;
+  }
+  height: 100%;
+}
