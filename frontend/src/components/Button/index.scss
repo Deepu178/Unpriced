@@ -12,18 +12,18 @@
 
   // COLORS
 
-  &.secondary {
-    color: var(--color-primary);
-    background-color: var(--color-tertiary);
+  &.grey {
+    color: var(--color-white);
+    background-color: var(--color-grey);
 
     &:focus,
     &:hover,
     &:active {
-      background-color: var(--color-tertiary-light);
+      background-color: var(--color-text);
     }
   }
 
-  &.danger {
+  &.secondary {
     color: var(--color-white);
     background-color: var(--color-secondary);
 
@@ -64,7 +64,7 @@
   &.large {
     height: 100%;
     height: 100%;
-    width: 15rem;
+    min-width: 15rem;
     font-size: inherit;
   }
 

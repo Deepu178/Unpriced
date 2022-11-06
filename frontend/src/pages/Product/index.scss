@@ -1,0 +1,50 @@
+.product {
+  &__container {
+    height: calc(100vh - 80px);
+    padding: 0 5%;
+  }
+
+  &__name {
+    margin-top: 10rem;
+    margin-bottom: 7rem;
+  }
+
+  &__main {
+    display: flex;
+    gap: 8rem;
+  }
+
+  &__img {
+    width: 45rem;
+  }
+
+  &__price {
+    color: var(--color-primary);
+  }
+}
+
+.product-info {
+  list-style: none;
+  width: 35%;
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__value {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+}
+
+.btn-grp {
+  margin-top: 2rem;
+
+  &:first-child {
+    margin-right: 1.5rem;
+  }
+}

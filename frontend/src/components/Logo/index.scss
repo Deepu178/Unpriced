@@ -1,4 +1,11 @@
 .logo {
   color: #fff;
   font-size: 2.8rem;
+  transition: all 0.2s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-primary-light);
+  }
 }
