@@ -25,7 +25,7 @@ export default function Login({ show = false, onClose }) {
     setPassword({ password: e.target.value });
   };
 
-  const onSubmit = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     const bookingData = {
       name: name,
@@ -59,7 +59,7 @@ export default function Login({ show = false, onClose }) {
             <b>x</b>
           </button>
         </h3>
-        <form onClick={onSubmit}>
+        <form onSubmit={submitHandler}>
           <fieldset>
             <input type={'text'} onClick={onChangeName} placeholder="Full Name" />
             <br />
