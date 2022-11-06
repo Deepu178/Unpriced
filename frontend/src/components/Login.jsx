@@ -36,7 +36,7 @@ export default function Login({ show = false, onClose }) {
     console.log(bookingData);
 
     axios
-      .post("http://127.0.0.1:8080/api/v1/users", bookingData)
+      .post("http://localhost:80/api/vi/users", bookingData)
       .then((res) => {
         console.log(res.data);
         setName(name);
@@ -59,7 +59,7 @@ export default function Login({ show = false, onClose }) {
             <b>x</b>
           </button>
         </h3>
-        <form onClick={onSubmit}>
+        <form onSubmit={handleSubmit}>
           <fieldset>
             <input
               type={"text"}
