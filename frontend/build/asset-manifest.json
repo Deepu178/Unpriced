@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.1f38bd0e.css",
-    "main.js": "/static/js/main.1aa21922.js",
+    "main.js": "/static/js/main.d8d87a86.js",
     "static/media/504 Error Gateway Timeout-amico.svg": "/static/media/504 Error Gateway Timeout-amico.10d7309e58efb2dc27667748b03aae55.svg",
     "static/media/Search-amico.svg": "/static/media/Search-amico.e5fc686c5aaebb9215d82edbb38eea63.svg",
     "static/media/404 Error-rafiki.svg": "/static/media/404 Error-rafiki.caa19ac40040d70fbf255f3c7e01c7dd.svg",
     "index.html": "/index.html",
     "main.1f38bd0e.css.map": "/static/css/main.1f38bd0e.css.map",
-    "main.1aa21922.js.map": "/static/js/main.1aa21922.js.map"
+    "main.d8d87a86.js.map": "/static/js/main.d8d87a86.js.map"
   },
   "entrypoints": [
     "static/css/main.1f38bd0e.css",
-    "static/js/main.1aa21922.js"
+    "static/js/main.d8d87a86.js"
   ]
 }
