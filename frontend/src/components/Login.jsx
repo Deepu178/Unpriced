@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 //mport {useState} from 'react';
-import Modal from './Modal';
-import axios from 'axios'; 
+import Modal from "./Modal";
+import axios from "axios";
 //import facebookLogin from 'react-facebook-login';
 //import googleLogin from 'react-google-login';
 
 export default function Login({ show = false, onClose }) {
-
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -38,7 +36,7 @@ export default function Login({ show = false, onClose }) {
     console.log(bookingData);
 
     axios
-      .post("http://localhost:80/api/vi/users", bookingData)
+      .post("http://127.0.0.1:8080/api/v1/users", bookingData)
       .then((res) => {
         console.log(res.data);
         setName(name);
@@ -52,7 +50,6 @@ export default function Login({ show = false, onClose }) {
     setBooked(true);
   };
 
-
   return (
     <Modal isOpen={show} onClose={() => onClose()}>
       <div>
@@ -64,16 +61,32 @@ export default function Login({ show = false, onClose }) {
         </h3>
         <form onClick={onSubmit}>
           <fieldset>
-            <input type={'text'} onClick={onChangeName} placeholder="Full Name" />
+            <input
+              type={"text"}
+              onClick={onChangeName}
+              placeholder="Full Name"
+            />
             <br />
             <br />
-            <input type={'email'} onClick={onChangeEmail} placeholder="Enter Your Email" />
+            <input
+              type={"email"}
+              onClick={onChangeEmail}
+              placeholder="Enter Your Email"
+            />
             <br />
             <br />
-            <input type={Number} onClick={onChangePhone} placeholder="Phone Number" />
+            <input
+              type={Number}
+              onClick={onChangePhone}
+              placeholder="Phone Number"
+            />
             <br />
             <br />
-            <input type={'password'} onClick={onChangePassword} placeholder="Create Password" />
+            <input
+              type={"password"}
+              onClick={onChangePassword}
+              placeholder="Create Password"
+            />
             <br />
             <br />
             <button id="create-btn" type="sumbit">
