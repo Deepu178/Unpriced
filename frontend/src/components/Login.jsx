@@ -5,8 +5,12 @@ import Input from './Input';
 import Button from './Button';
 import useInput from '../hooks/use-input';
 import './index.scss';
-//import facebookLogin from 'react-facebook-login';
-//import googleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 export default function Login({ show = false, onClose }) {
   // const [name, setName] = useState();
@@ -83,6 +87,7 @@ export default function Login({ show = false, onClose }) {
   };
 
   return (
+    <div>
     <Modal isOpen={show} onClose={() => resetForm()}>
       <div>
         <h3 className="h-l login__heading">Create an account</h3>
@@ -101,5 +106,28 @@ export default function Login({ show = false, onClose }) {
         </form>
       </div>
     </Modal>
+    
+    <Modal isOpen={show} >
+      <div>
+       <div>
+        <FacebookLogin
+        appId="865366151290601"
+        autoLoad={true}
+        fields="name,email,picture,"
+        textButton='Continue with facebook'
+        />
+      </div>
+      <div>
+      <GoogleLogin
+    clientId="827982091533-r63rtar2ogioj6jtb7gvn9pu5augnshp.apps.googleusercontent.com"
+    buttonText="Login"
+     onSuccess={responseGoogle}
+     //onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'} 
+  />
+      </div> 
+      </div>
+    </Modal>
+    </div>
   );
 }
