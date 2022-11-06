@@ -8,21 +8,21 @@ import axios from 'axios';
 export default function Login({ show = false, onClose }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState();
   const [password, setPassword] = useState('');
-  const [booked, setBooked] = useState(false);
+  const [booked, setBooked] = useState();
 
   const onChangeName = (e) => {
-    setName({ name: e.target.value });
+    setName(e.target.value);
   };
   const onChangeEmail = (e) => {
-    setEmail({ email: e.target.value });
+    setEmail(e.target.value);
   };
   const onChangePhone = (e) => {
-    setPhone({ phone: e.target.value });
+    setPhone(e.target.value);
   };
   const onChangePassword = (e) => {
-    setPassword({ password: e.target.value });
+    setPassword(e.target.value);
   };
 
   const submitHandler = (e) => {
@@ -36,13 +36,13 @@ export default function Login({ show = false, onClose }) {
     console.log(bookingData);
 
     axios
-      .post('http://localhost:80/api/vi/users', bookingData)
+      .post("http://localhost:8080/api/v1/users", bookingData)
       .then((res) => {
         console.log(res.data);
-        setName(name);
-        setEmail(email);
-        setPhone(phone);
-        setPassword(password);
+        // setName(name);
+        // setEmail(email);
+        // setPhone(phone);
+        // setPassword(password);
       })
       .catch((error) => {
         console.log(error);
@@ -61,16 +61,16 @@ export default function Login({ show = false, onClose }) {
         </h3>
         <form onSubmit={submitHandler}>
           <fieldset>
-            <input type={'text'} onClick={onChangeName} placeholder="Full Name" />
+            <input type={'text'} onChange={onChangeName} placeholder="Full Name" />
             <br />
             <br />
-            <input type={'email'} onClick={onChangeEmail} placeholder="Enter Your Email" />
+            <input type={'email'} onChange={onChangeEmail} placeholder="Enter Your Email" />
             <br />
             <br />
-            <input type={Number} onClick={onChangePhone} placeholder="Phone Number" />
+            <input type={'number'} onChange={onChangePhone} placeholder="Phone Number" />
             <br />
             <br />
-            <input type={'password'} onClick={onChangePassword} placeholder="Create Password" />
+            <input type={'password'} onChange={onChangePassword} placeholder="Create Password" />
             <br />
             <br />
             <button id="create-btn" type="sumbit">
