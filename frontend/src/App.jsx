@@ -1,3 +1,4 @@
+import React from 'react';
 import Footer from './containers/Footer';
 import Nav from './containers/Nav';
 import { Routes, Route } from 'react-router-dom';

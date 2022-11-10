@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Modal from '../Modal';
-import Input from '../Input';
-import Button from '../Button';
+import Modal from '../../components/Modal';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 import useInput from '../../hooks/use-input';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
@@ -60,7 +60,7 @@ export default function Login({ show = false, onClose }) {
       passwordIsValid,
     });
 
-    if (!emailIsValid && !phoneIsValid && !nameIsValid && !passwordIsValid) {
+    if (!emailIsValid || !phoneIsValid || !nameIsValid || !passwordIsValid) {
       // alert('invalid credentials');
       nameBlurHandler();
       emailBlurHandler();
