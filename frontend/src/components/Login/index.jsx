@@ -53,6 +53,13 @@ export default function Login({ show = false, onClose }) {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    console.log({
+      nameIsValid,
+      emailIsValid,
+      phoneIsValid,
+      passwordIsValid,
+    });
+
     if (!emailIsValid && !phoneIsValid && !nameIsValid && !passwordIsValid) {
       // alert('invalid credentials');
       nameBlurHandler();
@@ -72,13 +79,15 @@ export default function Login({ show = false, onClose }) {
     console.log(bookingData);
 
     axios
-      .post('http://localhost:8080/api/v1/users', bookingData)
+      .post('http://localhost:8080/authentication/login', bookingData)
       .then((res) => {
         console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
+
+    resetForm();
   };
 
   return (
