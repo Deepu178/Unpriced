@@ -1,7 +1,6 @@
 const express = require("express");
 
 const app = express();
-//const PORT = 8080;
 const cors = require('cors');
 const userRouter = require("./routes/userRoutes");
 app.use(express.json());

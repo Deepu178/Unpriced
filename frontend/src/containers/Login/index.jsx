@@ -79,7 +79,7 @@ export default function Login({ show = false, onClose }) {
     console.log(bookingData);
 
     axios
-      .post('http://localhost:8080/authentication/login', bookingData)
+      .post('http://localhost:8080/api/v1/users', bookingData)
       .then((res) => {
         console.log(res.data);
       })
