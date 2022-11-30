@@ -3,7 +3,7 @@ import Features from '../containers/Features';
 
 const Home = () => {
   return (
-    <>
+    <> 
       <Hero />
       <Features />
     </>
