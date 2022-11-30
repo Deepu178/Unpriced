@@ -4,13 +4,13 @@ import Modal from '../../components/Modal';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import useInput from '../../hooks/use-input';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
+//import FacebookLogin from 'react-facebook-login';
+//import GoogleLogin from 'react-google-login';
 import './index.scss';
 
-const responseGoogle = (response) => {
-  console.log(response);
-};
+// const responseGoogle = (response) => {
+//   console.log(response);
+// };
 
 export default function Login({ show = false, onClose }) {
   const { value: name, error: nameError, isValid: nameIsValid, reset: nameReset, blurHandler: nameBlurHandler, changeHandler: nameChangeHandler } = useInput({ required: 'Please enter your name!' });
@@ -110,16 +110,16 @@ export default function Login({ show = false, onClose }) {
           </form>
           <div className="btn-grp">
             <div className="fb">
-              <FacebookLogin appId="865366151290601" autoLoad={true} fields="name,email,picture," textButton="Continue with facebook" />
+{/* <FacebookLogin appId="865366151290601" autoLoad={true} fields="name,email,picture," textButton="Continue with facebook" /> */}
             </div>
             <div className="google">
-              <GoogleLogin
+              {/* <GoogleLogin
                 clientId="827982091533-r63rtar2ogioj6jtb7gvn9pu5augnshp.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={responseGoogle}
                 //onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
-              />
+              /> */}
             </div>
           </div>
         </div>
