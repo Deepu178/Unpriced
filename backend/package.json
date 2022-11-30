@@ -1,7 +1,6 @@
 {
   "name": "unpriced",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -26,5 +25,7 @@
     "mongoose": "^6.7.4",
     "nodemon": "^2.0.20",
     "validator": "^13.7.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
