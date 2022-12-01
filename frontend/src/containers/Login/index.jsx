@@ -4,6 +4,7 @@ import Modal from '../../components/Modal';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import useInput from '../../hooks/use-input';
+import { useNavigate } from 'react-router-dom';
 //import FacebookLogin from 'react-facebook-login';
 //import GoogleLogin from 'react-google-login';
 import './index.scss';
@@ -13,6 +14,7 @@ import './index.scss';
 // };
 
 export default function Login({ show = false, onClose }) {
+  const navigate = useNavigate();
   const { value: name, error: nameError, isValid: nameIsValid, reset: nameReset, blurHandler: nameBlurHandler, changeHandler: nameChangeHandler } = useInput({ required: 'Please enter your name!' });
 
   const {
@@ -69,17 +71,17 @@ export default function Login({ show = false, onClose }) {
       return;
     }
 
-    const bookingData = {
+    const userData = {
       name,
       email,
       phone,
       password,
     };
 
-    console.log(bookingData);
+    console.log(userData);
 
     axios
-      .post('http://localhost:8080/api/v1/users', bookingData)
+      .post('http://localhost:8080/api/v1/users', userData)
       .then((res) => {
         console.log(res.data);
       })
@@ -105,7 +107,7 @@ export default function Login({ show = false, onClose }) {
             <Input type="password" value={password} placeholder="Create Password" onChange={passwordChangeHandler} onBlur={passwordBlurHandler} error={passwordError} />
 
             <Button size="large" type="submit">
-              Create
+              Create an Account
             </Button>
           </form>
           <div className="btn-grp">
