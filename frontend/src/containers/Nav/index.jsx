@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '../../components/Button';
-import Login from '../Login';
+import Login from '../Login/Login';
 import Logo from '../../components/Logo';
 import './index.scss';
 

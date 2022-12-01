@@ -5,6 +5,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import useInput from '../../hooks/use-input';
 import { useNavigate } from 'react-router-dom';
+import Dashboard from '../../dashboard/Dashboard';
 //import FacebookLogin from 'react-facebook-login';
 //import GoogleLogin from 'react-google-login';
 import './index.scss';
@@ -68,7 +69,7 @@ export default function Login({ show = false, onClose }) {
       emailBlurHandler();
       phoneBlurHandler();
       passwordBlurHandler();
-      return;
+      return navigate("/Dashboard");
     }
 
     const userData = {
@@ -77,7 +78,7 @@ export default function Login({ show = false, onClose }) {
       phone,
       password,
     };
-
+    navigate("/Dashboard");
     console.log(userData);
 
     axios
@@ -89,7 +90,7 @@ export default function Login({ show = false, onClose }) {
         console.log(error);
       });
 
-    resetForm();
+    //resetForm();
   };
 
   return (
